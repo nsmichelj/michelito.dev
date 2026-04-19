@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
@@ -31,15 +33,19 @@ export default function RootLayout({
   return (
     <html
       className={cn(
-        "h-full",
-        "antialiased",
+        "bg-background font-geist-sans text-foreground antialiased",
         geistSans.variable,
         geistMono.variable,
         geistMonoHeading.variable
       )}
       lang="en"
+      suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="w-full">
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <TooltipProvider>{children}</TooltipProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
