@@ -2,7 +2,7 @@ const USER = {
   fullName: "Michel Nuñez",
   nickname: "Michelito",
   initials: "MN",
-  avatar: "https://github.com/shadcn.png",
+  avatar: "/photo_profile.jpg",
   flipTitles: [
     "Full Stack Developer",
     "I Build Things for the Web",
